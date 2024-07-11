@@ -26,3 +26,5 @@ EXTRA_OEMESON = "-Duapi=${STAGING_KERNEL_DIR}"
 # tests package
 PACKAGES += "${PN}-test"
 FILES:${PN}-test = "${prefix}/tests"
+
+RDEPENDS:${PN} += " libgcc"

@@ -1,0 +1,70 @@
+From 103c722423c2a1398fbc1cf826e1d9b67cbe7c0a Mon Sep 17 00:00:00 2001
+From: example <example@example.com>
+Date: Wed, 10 Jul 2024 06:41:40 +0000
+Subject: [PATCH] feat: add ccbox device tree
+
+---
+ arch/arm/boot/dts/nxp/imx/Makefile            |  1 +
+ .../boot/dts/nxp/imx/imx6q-sabresd-ccbox.dts  | 41 +++++++++++++++++++
+ 2 files changed, 42 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-sabresd-ccbox.dts
+
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index 3629e343d322..9dc44e4cccbe 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -223,6 +223,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6q-sabreauto.dtb \
+ 	imx6q-sabrelite.dtb \
+ 	imx6q-sabresd.dtb \
++	imx6q-sabresd-ccbox.dtb \
+ 	imx6q-savageboard.dtb \
+ 	imx6q-sbc6x.dtb \
+ 	imx6q-skov-revc-lt2.dtb \
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-sabresd-ccbox.dts b/arch/arm/boot/dts/nxp/imx/imx6q-sabresd-ccbox.dts
+new file mode 100644
+index 000000000000..db15e1887e5f
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-sabresd-ccbox.dts
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0+
++//
++// Copyright 2012 Freescale Semiconductor, Inc.
++// Copyright 2011 Linaro Ltd.
++
++/dts-v1/;
++
++#include "imx6q.dtsi"
++#include "imx6qdl-sabresd.dtsi"
++
++/ {
++    model = "Freescale i.MX6 Quad SABRE Smart Device Board";
++    compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
++};
++
++&sata {
++    status = "okay";
++};
++
++&ipu1_csi1_from_mipi_vc1 {
++    clock-lanes = <0>;
++    data-lanes = <1 2>;
++};
++
++&iomuxc {
++    imx6qdl-sabresd-ccbox {
++
++    };
++};
++
++&pinctrl_uart1 {
++    fsl,pins = <
++	MX6QDL_PAD_SD3_DAT7__UART1_TX_DATA    0x1b0b1
++	MX6QDL_PAD_SD3_DAT6__UART1_RX_DATA    0x1b0b1
++    >;
++};
++
++&ssi2 {
++    status = "disabled";
++};
++
