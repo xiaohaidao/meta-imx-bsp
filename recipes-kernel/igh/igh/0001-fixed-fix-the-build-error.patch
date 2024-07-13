@@ -1,0 +1,35 @@
+From 0cfb37102df7376b424555080f4c6ab1d2f820a1 Mon Sep 17 00:00:00 2001
+From: example <example@example.com>
+Date: Fri, 12 Jul 2024 09:47:37 +0000
+Subject: [PATCH] fixed: fix the build error
+
+---
+ tool/Makefile.am    | 1 -
+ tool/SoeCommand.cpp | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/tool/Makefile.am b/tool/Makefile.am
+index 27bce15c..a4656a87 100644
+--- a/tool/Makefile.am
++++ b/tool/Makefile.am
+@@ -28,7 +28,6 @@ EXTRA_DIST =
+ bin_PROGRAMS = ethercat
+ 
+ ethercat_SOURCES = \
+-	../master/soe_errors.c \
+ 	Command.cpp \
+ 	CommandAlias.cpp \
+ 	CommandCrc.cpp \
+diff --git a/tool/SoeCommand.cpp b/tool/SoeCommand.cpp
+index 67cb0792..e1f15a15 100644
+--- a/tool/SoeCommand.cpp
++++ b/tool/SoeCommand.cpp
+@@ -24,7 +24,7 @@ using namespace std;
+ 
+ #include "SoeCommand.h"
+ 
+-extern const ec_code_msg_t soe_error_codes[];
++#include "../master/soe_errors.c"
+ 
+ /****************************************************************************/
+ 

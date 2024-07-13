@@ -13,8 +13,9 @@ SRC_URI = "git://source.denx.de/Xenomai/xenomai4/linux-evl.git;protocol=https;br
 inherit kernel
 
 # Modify these as desired
-PV = "v6.6.15-evl2"
-SRCREV = "f25ecf7ba6483115f4bff4bea7fe32a28bd7c572"
+PV = "v6.6.37-evl3"
+SRCREV = "44eaeec1d67df0b36f81e93bd3e09d1ba2693851"
+PATCHTOOL = "git"
 
 S = "${WORKDIR}/git"
 

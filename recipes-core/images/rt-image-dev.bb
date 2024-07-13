@@ -1,6 +1,10 @@
 require rt-image.bb
 
-IMAGE_FEATURES += "dev-pkgs"
+IMAGE_FEATURES += "dev-pkgs \
+                   tools-debug \
+                  "
 
 # packages
-IMAGE_INSTALL:append = " stress-ng"
+IMAGE_INSTALL:append = " stress-ng \
+                         expect \
+                       "
