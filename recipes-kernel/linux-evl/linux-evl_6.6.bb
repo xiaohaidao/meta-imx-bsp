@@ -20,3 +20,6 @@ PATCHTOOL = "git"
 S = "${WORKDIR}/git"
 
 #KERNEL_LOCALVERSION = "-evl2"
+KBUILD_BUILD_VERSION = "1"
+# CONFIG_LOCALVERSION_AUTO not set
+# "noinitrd console=ttymxc0,115200 root=/dev/mmcblk3p7 coherent_pool=2M rootwait rw isolcpus=1 nohz=off"

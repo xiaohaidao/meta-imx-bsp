@@ -9,12 +9,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
                     "
 
 SRC_URI = "gitsm://gitlab.com/etherlab.org/ethercat.git;protocol=https;branch=stable-1.6 \
-           file://0001-fixed-fix-the-build-error.patch \
            "
 
 # Modify these as desired
 PV = "1.6+git"
-SRCREV = "bc945f69ab6bde63a914988b9496919bedbc8e06"
+SRCREV = "285cdf0bc3f98b201d634f6274ba58be014e0f54"
 
 S = "${WORKDIR}/git"
 

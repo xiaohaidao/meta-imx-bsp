@@ -1,6 +1,8 @@
 
 require recipes-core/images/core-image-minimal.bb
 
+# PREFERRED_PROVIDER_virtual/kernel ?= "linux-evl"
+
 # packages
 EXTRA_IMAGE_FEATURES += " ssh-server-openssh \
                           package-management \
@@ -9,11 +11,13 @@ EXTRA_IMAGE_FEATURES += " ssh-server-openssh \
 # e2fsprogs for mkfs.ext4
 IMAGE_INSTALL:append = " opkg \
                          libevl \
-                         e2fsprogs \
                          igh \
                         "
 
-#MACHINE_EXTRA_RRECOMMENDS:append =
+#MACHINE_EXTRA_RRECOMMENDS:append =
+
+#TOOLCHAIN_TARGET_TASK:append = "igh-dev libevl-dev kernel-dev kernel-devsrc"
+TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
 
 
 #inherit extrausers
