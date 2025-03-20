@@ -20,7 +20,7 @@ IMAGE_INSTALL:append = " opkg \
 TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
 
 
-#inherit extrausers
-#EXTRA_USERS_PARAMS = "\
-#    usermod -p '$6$XV1W32lyI8./8S/h$zMUSaqpSI.Gi8YlqNfbZpc2hc2o9U2fVr7ReYGjcMjhl5Ryq9oBVOoWTh2nXxDQBfzQw/2376NM9bYZW1sCip0' root; \
-#    "
+inherit extrausers
+EXTRA_USERS_PARAMS = "\
+    usermod -p '\$1\$0ooe8il1\$iUepfqN/Rkgm1l9k7VC4x0' root; \
+    "

@@ -1,0 +1,7 @@
+header:
+  version: 1
+  includes:
+    - kas_base.yaml
+
+machine: gen-x86_64
+

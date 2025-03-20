@@ -2,7 +2,7 @@
 
 sed 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list -i
 apt update
-apt install -y g++ python3 pkg-config curl make git cmake vim ninja-build \
+apt install -y g++ python3 pkg-config curl make git cmake vim ninja-build sudo \
     #qemu-system-arm
 
 DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai \
@@ -17,7 +17,10 @@ apt install -y gawk wget git diffstat unzip texinfo gcc build-essential \
 # book: https://e.coding.net/weidongshan/01_all_series_quickstart.git
 # book: https://e.coding.net/weidongshan/linux/doc_and_source_for_drivers.git
 
-umask 000
+adduser --gecos "" --disabled-password --uid 1020 admin && \
+        usermod -aG sudo admin && passwd -d admin && su admin
+
+#umask 000
 git config --global init.defaultBranch master
 git config --global safe.directory "*"
 git config --global user.email example@example.com

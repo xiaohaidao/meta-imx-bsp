@@ -1,0 +1,40 @@
+header:
+  version: 1
+  includes: []
+    #- kas_base.yaml
+
+#defaults:
+  #repos:
+    #branch: master
+
+machine: ccbox
+
+distro: poky
+
+#target: core-image-minimal
+target: rt-image
+
+#env:
+  #BB_ENV_PASSTHROUGH_ADDITIONS: "DL_DIR SSTATE_DIR"
+  #DL_DIR: $PWD/downloads
+  #SSTATE_DIR: $PWD/sstate-cache
+
+repos:
+  poky:
+    url: git://git.yoctoproject.org/poky
+    tag: yocto-5.0.7
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+  meta-imx-bsp:
+    url: https://github.com/xiaohaidao/meta-imx-bsp.git
+    branch: master
+
+#bblayers_conf_header:
+
+#local_conf_header:
+local_conf_header:
+  meta-custom: |
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+
