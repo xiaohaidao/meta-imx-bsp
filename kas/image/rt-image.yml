@@ -1,0 +1,17 @@
+header:
+    version: 1
+
+repos:
+  meta-imx-bsp:
+    path: layers/meta-imx-bsp
+    url: https://github.com/xiaohaidao/meta-imx-bsp.git
+    branch: master
+
+#target: core-image-minimal
+target: rt-image
+
+local_conf_header:
+  meta-imx-bsp: |
+    #WARN_QA:remove = "license-exists"
+
+

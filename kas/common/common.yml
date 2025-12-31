@@ -1,0 +1,55 @@
+# see: https://kas.readthedocs.io/en/latest/userguide/project-configuration.html
+
+header:
+  version: 1
+
+repos:
+  #openembedded-core:
+    #url: "https://github.com/openembedded/openembedded-core.git"
+    #commit: "04038ecd1edd6592b826665a2b787387bb7074fa"
+    #path: "layers/openembedded-core"
+    #layers:
+      #meta:
+
+  #bitbake:
+    #url: "https://github.com/openembedded/bitbake.git"
+    #branch: "2.8"
+    #commit: "696c2c1ef095f8b11c7d2eff36fae50f58c62e5e"
+    #path: "layers/bitbake"
+    #layers:
+      #bitbake: "excluded"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    #commit: "scarthgap"
+    branch: "scarthgap"
+    path: "layers/meta-openembedded"
+    layers:
+      meta-filesystems:
+      meta-gnome:
+      meta-initramfs:
+      meta-multimedia:
+      meta-networking:
+      meta-oe:
+      meta-perl:
+      meta-python:
+      meta-webserver:
+      meta-xfce:
+
+env:
+  BB_ENV_PASSTHROUGH_ADDITIONS: "DL_DIR SSTATE_DIR"
+  DL_DIR: $PWD/downloads
+  SSTATE_DIR: $PWD/sstate-cache
+  #KAS_BUILD_DIR: $PWD/build/
+
+#bblayers_conf_header:
+
+local_conf_header:
+  meta-common: |
+    #EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+    #IMAGE_FEATURES ?= "debug-tweaks"
+    EXTRA_IMAGE_FEATURES += "empty-root-password allow-empty-password allow-root-login post-install-logging"
+    DISTRO_FEATURES += "usrmerge"
+    INHERIT_DISTRO:remove = "create-spdx"
+    WARN_QA:remove = "license-exists"
+

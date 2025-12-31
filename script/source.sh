@@ -17,7 +17,11 @@ apt install -y gawk wget git diffstat unzip texinfo gcc build-essential \
 # book: https://e.coding.net/weidongshan/01_all_series_quickstart.git
 # book: https://e.coding.net/weidongshan/linux/doc_and_source_for_drivers.git
 
-adduser --gecos "" --disabled-password --uid 1020 admin && \
+UID_OPTION=
+if [[ ! -z ${HOST_USER_UID}  ]];then
+        UID_OPTION="--uid ${HOST_USER_UID}"
+fi
+adduser --gecos "" --disabled-password ${UID_OPTION} admin && \
         usermod -aG sudo admin && passwd -d admin && su admin
 
 #umask 000

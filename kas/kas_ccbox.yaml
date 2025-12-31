@@ -1,0 +1,9 @@
+header:
+  version: 1
+  includes:
+    - common/common.yaml
+    - common/ros2.yaml
+    - distro/poky.yaml
+    - image/rt-image.yaml
+    - machine/ccbox.yaml
+

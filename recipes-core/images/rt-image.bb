@@ -12,7 +12,10 @@ EXTRA_IMAGE_FEATURES += " ssh-server-openssh \
 IMAGE_INSTALL:append = " opkg \
                          libevl \
                          igh \
+                         ros-core \ 
                         "
+
+QEMU_TARGETS:append = " armeb"
 
 #MACHINE_EXTRA_RRECOMMENDS:append =
 
